@@ -92,84 +92,84 @@ A full end-to-end Canvas Power App that allows employees to:
 ### 01 — Login Screen
 > Secure OTP-based authentication. Only registered employees can sign in.
 
-![01 - Login Screen](screenshots/01_login_screen.png)
+![01 - Login Screen](Screenshots/1_login_screen.png)
 
 ---
 
 ### 02 — OTP Email Received
 > Employee receives a 6-digit One-Time Password in their Outlook inbox via Power Automate.
 
-![02 - OTP Email](screenshots/04_otp_email.png)
+![02 - OTP Email](Screenshots/4_otp_email.png)
 
 ---
 
 ### 03 — Weekly Status Form
 > Employee fills in weekly achievements, next week goals, blockers, support needed, and week start date.
 
-![03 - Weekly Status Form](screenshots/05_status_form_filled.png)
+![03 - Weekly Status Form](Screenshots/5_status_form_filled.png)
 
 ---
 
 ### 04 — My Report Screen
 > Employee views their own submitted records. Each entry has a Delete 🗑️ and Edit ✏️ option.
 
-![04 - My Report Screen](screenshots/06_my_report_data.png)
+![04 - My Report Screen](Screenshots/6_my_report_data.png)
 
 ---
 
 ### 05 — Team View Screen
 > Manager sees all team submissions in one place. Searchable by employee name.
 
-![05 - Team View Screen](screenshots/07_team_view.png)
+![05 - Team View Screen](Screenshots/7_team_view.png)
 
 ---
 
 ### 06 — Edit Record Screen
 > Employee can update a previously submitted weekly status entry and save changes.
 
-![06 - Edit Record Screen](screenshots/08_edit_record.png)
+![06 - Edit Record Screen](Screenshots/8_edit_record.png)
 
 ---
 
 ### 07 — Power BI Dashboard
 > Real-time dashboard showing submissions per week, support needed %, blockers per week, and full detail table with date and employee slicers.
 
-![07 - Power BI Dashboard](screenshots/09_powerbi_dashboard.png)
+![07 - Power BI Dashboard](Screenshots/9_powerbi_dashboard.png)
 
 ---
 
 ### 08 — Manager Email Alert
 > Manager receives a structured email notification automatically when an employee submits their weekly status.
 
-![08 - Manager Email Alert](screenshots/10_manager_email.png)
+![08 - Manager Email Alert](Screenshots/10_manager_email.png)
 
 ---
 
 ### 09 — SharePoint: P1_WeeklyStatus List
 > All employee submissions are stored automatically in SharePoint by the app on form submit.
 
-![09 - SharePoint WeeklyStatus](screenshots/11_sharepoint_weekly_status.png)
+![09 - SharePoint WeeklyStatus](Screenshots/11_sharepoint_weekly_status.png)
 
 ---
 
 ### 10 — SharePoint: P1_EmployeeUsers List
 > Registered employee emails managed by Admin. OTP and OTPExpiry are auto-filled by Power Automate on each login.
 
-![10 - SharePoint EmployeeUsers](screenshots/12_sharepoint_employee_users.png)
+![10 - SharePoint EmployeeUsers](Screenshots/12_sharepoint_employee_users.png)
 
 ---
 
 ### 11 — Power Automate: P1_NotifyManager Flow
 > Triggered automatically when a new item is created in P1_WeeklyStatus. Sends a formatted email to the manager.
 
-![11 - Notify Manager Flow](screenshots/13_flow_notify_manager.png)
+![11 - Notify Manager Flow](Screenshots/13_flow_notify_manager.png)
 
 ---
 
 ### 12 — Power Automate: P1_SendOTPEmail Flow
 > Triggered from Power Apps on Send OTP click. Generates a 6-digit OTP, updates SharePoint, and emails it to the employee.
 
-![12 - Send OTP Flow](screenshots/14_flow_send_otp.png)
+![12 - Send OTP Flow](Screenshots/14_flow_send_otp.png)
 
 ---
 
