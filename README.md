@@ -17,7 +17,7 @@ A full end-to-end Canvas Power App that allows employees to:
 
 - 🔐 Log in securely via **OTP email authentication**
 - 📝 Submit **structured weekly status updates**
-- 👁️ View **personal submission history** and edit past entries
+- 👁️ View **personal submission history**, edit, and delete past entries
 - 👥 Managers get a **Team View** of all submissions
 - 📊 Visualize team progress via an **embedded Power BI dashboard**
 - 📧 Managers receive **automated email alerts** on new submissions
