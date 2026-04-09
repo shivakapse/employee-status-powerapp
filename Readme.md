@@ -1,252 +1,238 @@
-# 📋 Employee Weekly Status App
+```markdown
+# 📋 Employee Weekly Status App  
 
-### A Canvas Power App for structured weekly employee reporting with secure OTP login and real-time Power BI dashboard visualization.
+A Canvas Power App built to simplify how teams share weekly updates — with secure OTP login and real-time visibility through Power BI.
 
-> Built by **Shiva Kapse** — Principal BI Engineer &nbsp;[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shivakapse/)
-
----
-
-## 🎯 Business Problem
-
-Teams had no structured way to report weekly progress. Managers lacked visibility into blockers and goals — leading to delayed decisions and missed escalations.
+> Built by **Shiva Kapse** — Principal BI Engineer  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shivakapse/)
 
 ---
 
-## ✅ Solution Built
+## 🎯 Business Problem  
 
-A full end-to-end Canvas Power App that allows employees to:
-
-- 🔐 Log in securely via **OTP email authentication**
-- 📝 Submit **structured weekly status updates**
-- 👁️ View **personal submission history** and edit past entries
-- 👥 Managers get a **Team View** of all team submissions
-- 📊 Visualize team progress via an **embedded Power BI dashboard**
-- 📧 Managers receive **automated email alerts** on every new submission
+There wasn’t a consistent way for teams to report weekly progress. Updates were scattered, and managers didn’t have clear visibility into blockers or next steps. This often led to delays and missed follow-ups.
 
 ---
 
-## 🔧 Features
+## ✅ Solution Built  
+
+To address this, I built a complete end-to-end Canvas Power App that allows employees to:
+
+- 🔐 Log in using OTP-based email authentication  
+- 📝 Submit structured weekly status updates  
+- 👁️ View and manage their past submissions  
+- 👥 Provide managers with a consolidated Team View  
+- 📊 Track progress using an embedded Power BI dashboard  
+- 📧 Automatically notify managers on every submission  
+
+---
+
+## 🔧 Features  
 
 | Feature | Details |
 |---|---|
-| 🔐 OTP Login | Secure entry — only registered employees can access the app |
-| 📝 Weekly Status Form | What Achieved, Next Week Goals, Blockers, Support Needed |
-| 🚨 Blocker Tracking | Flags support needed for immediate manager visibility |
-| 📁 My Report Screen | Employee views and manages their own submission history |
-| 👥 Team View Screen | Manager sees all team submissions, searchable by name |
-| ✏️ Edit Record Screen | Employee can edit previously submitted entries |
-| 📊 Power BI Dashboard | Visual summary — submissions per week, blockers, support needed |
-| ⚡ Manager Alert Flow | Auto email to manager when new status is submitted |
-| 🔒 Logout | Secure session clear on logout |
+| 🔐 OTP Login | Secure access for registered employees only |
+| 📝 Weekly Status Form | Captures achievements, goals, blockers, and support needs |
+| 🚨 Blocker Tracking | Highlights where help is required |
+| 📁 My Report Screen | View and manage personal submissions |
+| 👥 Team View Screen | Managers can see all team updates |
+| ✏️ Edit Record Screen | Update previously submitted entries |
+| 📊 Power BI Dashboard | Visual insights on submissions and trends |
+| ⚡ Manager Alert Flow | Email notifications on new submissions |
+| 🔒 Logout | Clears session securely |
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack  
 
-![Power Apps](https://img.shields.io/badge/Power%20Apps-742774?style=for-the-badge&logo=powerapps&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![Power Automate](https://img.shields.io/badge/Power%20Automate-0066FF?style=for-the-badge&logo=powerautomate&logoColor=white)
-![SharePoint](https://img.shields.io/badge/SharePoint-0078D4?style=for-the-badge&logo=microsoftsharepoint&logoColor=white)
-![Outlook](https://img.shields.io/badge/Outlook-0078D4?style=for-the-badge&logo=microsoftoutlook&logoColor=white)
+![Power Apps](https://img.shields.io/badge/Power%20Apps-742774?style=for-the-badge&logo=powerapps&logoColor=white)  
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)  
+![Power Automate](https://img.shields.io/badge/Power%20Automate-0066FF?style=for-the-badge&logo=powerautomate&logoColor=white)  
+![SharePoint](https://img.shields.io/badge/SharePoint-0078D4?style=for-the-badge&logo=microsoftsharepoint&logoColor=white)  
+![Outlook](https://img.shields.io/badge/Outlook-0078D4?style=for-the-badge&logo=microsoftoutlook&logoColor=white)  
 
 ---
 
-## 📐 App Architecture
+## 📐 App Architecture  
 
 ```
-┌─────────────────────────────────────────────────────┐
-│               LOGIN SCREEN                          │
-│  Full Name + Work Email → Send OTP → Verify & Sign  │
-│  (OTP generated & emailed via Power Automate)       │
-└──────────────────────┬──────────────────────────────┘
-                       │
-          ┌────────────▼────────────┐
-          │   WEEKLY STATUS FORM    │
-          │  • What Achieved        │
-          │  • Next Week Goals      │
-          │  • Blockers             │
-          │  • Support Needed       │
-          │  • Week Start Date      │
-          └────────────┬────────────┘
-                       │
-         ┌─────────────▼──────────────┐
-         │   SharePoint Lists         │
-         │  • P1_EmployeeUsers        │
-         │    (Email, OTP, OTPExpiry) │
-         │  • P1_WeeklyStatus         │
-         │    (All submission data)   │
-         └──────┬──────────┬──────────┘
-                │          │
-    ┌───────────▼──┐  ┌────▼─────────────────┐
-    │ Power        │  │ Power BI Dashboard    │
-    │ Automate     │  │ • Submissions/Week    │
-    │ Notify       │  │ • Support Needed %    │
-    │ Manager      │  │ • Blockers/Week       │
-    └──────────────┘  └───────────────────────┘
+
+LOGIN SCREEN
+→ Enter Name & Email
+→ Send OTP (via Power Automate)
+→ Verify & Sign In
+
+↓
+
+WEEKLY STATUS FORM
+→ What Achieved
+→ Next Week Goals
+→ Blockers
+→ Support Needed
+→ Week Start Date
+
+↓
+
+SharePoint Lists
+
+* P1_EmployeeUsers (Email, OTP, Expiry)
+* P1_WeeklyStatus (All submissions)
+
+↓
+
+Power Automate → Notify Manager
+Power BI → Dashboard (Submissions, Blockers, Support Needed)
+
 ```
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots  
 
-### 01 — Login Screen
-> Secure OTP-based authentication. Only registered employees can sign in.
-
+### 01 — Login Screen  
+OTP-based login for secure access  
 ![01 - Login Screen](Screenshots/1_login_screen.png)
 
 ---
 
-### 02 — OTP Email Received
-> Employee receives a 6-digit One-Time Password in their Outlook inbox via Power Automate.
-
+### 02 — OTP Email Received  
+6-digit OTP sent via Outlook  
 ![02 - OTP Email](Screenshots/4_otp_email.png)
 
 ---
 
-### 03 — Weekly Status Form
-> Employee fills in weekly achievements, next week goals, blockers, support needed, and week start date.
-
+### 03 — Weekly Status Form  
+Submit weekly updates  
 ![03 - Weekly Status Form](Screenshots/5_status_form_filled.png)
 
 ---
 
-### 04 — My Report Screen
-> Employee views their own submitted records. Each entry has a Delete 🗑️ and Edit ✏️ option.
-
+### 04 — My Report Screen  
+View, edit, or delete submissions  
 ![04 - My Report Screen](Screenshots/6_my_report_data.png)
 
 ---
 
-### 05 — Team View Screen
-> Manager sees all team submissions in one place. Searchable by employee name.
-
+### 05 — Team View Screen  
+Manager view of all submissions  
 ![05 - Team View Screen](Screenshots/7_team_view.png)
 
 ---
 
-### 06 — Edit Record Screen
-> Employee can update a previously submitted weekly status entry and save changes.
-
+### 06 — Edit Record Screen  
+Update an existing entry  
 ![06 - Edit Record Screen](Screenshots/8_edit_record.png)
 
 ---
 
-### 07 — Power BI Dashboard
-> Real-time dashboard showing submissions per week, support needed %, blockers per week, and full detail table with date and employee slicers.
-
+### 07 — Power BI Dashboard  
+Track trends and insights  
 ![07 - Power BI Dashboard](Screenshots/9_powerbi_dashboard.png)
 
 ---
 
-### 08 — Manager Email Alert
-> Manager receives a structured email notification automatically when an employee submits their weekly status.
-
+### 08 — Manager Email Alert  
+Auto email on submission  
 ![08 - Manager Email Alert](Screenshots/10_manager_email.png)
 
 ---
 
-### 09 — SharePoint: P1_WeeklyStatus List
-> All employee submissions are stored automatically in SharePoint by the app on form submit.
-
+### 09 — SharePoint: P1_WeeklyStatus  
+Stores all submissions  
 ![09 - SharePoint WeeklyStatus](Screenshots/11_sharepoint_weekly_status.png)
 
 ---
 
-### 10 — SharePoint: P1_EmployeeUsers List
-> Registered employee emails managed by Admin. OTP and OTPExpiry are auto-filled by Power Automate on each login.
-
+### 10 — SharePoint: P1_EmployeeUsers  
+Stores registered users  
 ![10 - SharePoint EmployeeUsers](Screenshots/12_sharepoint_employee_users.png)
 
 ---
 
-### 11 — Power Automate: P1_NotifyManager Flow
-> Triggered automatically when a new item is created in P1_WeeklyStatus. Sends a formatted email to the manager.
-
+### 11 — Power Automate: Notify Manager  
+Flow for email alerts  
 ![11 - Notify Manager Flow](Screenshots/13_flow_notify_manager.png)
 
 ---
 
-### 12 — Power Automate: P1_SendOTPEmail Flow
-> Triggered from Power Apps on Send OTP click. Generates a 6-digit OTP, updates SharePoint, and emails it to the employee.
-
+### 12 — Power Automate: Send OTP  
+Handles OTP generation and email  
 ![12 - Send OTP Flow](Screenshots/14_flow_send_otp.png)
 
 ---
 
-## 🗂️ SharePoint Lists
+## 🗂️ SharePoint Lists  
 
-### `P1_EmployeeUsers`
-Stores registered employees allowed to log in. Managed by Admin.
-
-| Column | Type | Description |
-|---|---|---|
-| Email | Single line of text | Employee work email — added manually by Admin |
-| OTP | Number | Auto-filled by Power Automate on Send OTP |
-| OTPExpiry | Date and Time | Auto-filled — OTP valid for 10 minutes |
-
-### `P1_WeeklyStatus`
-Stores all weekly submissions. Auto-filled by the app on form submit.
+### P1_EmployeeUsers  
 
 | Column | Type | Description |
 |---|---|---|
-| EmployeeName | Single line of text | Captured from login session |
-| WeekStartDate | Date and Time | Selected by employee on form |
-| WhatAchieved | Plain text (multiline) | This week's achievements |
-| NextWeekGoals | Plain text (multiline) | Goals for next week |
-| Blockers | Plain text (multiline) | Current blockers |
-| SupportNeeded | Choice (Yes / No) | Flags if manager support is needed |
-| SubmittedDate | Date and Time | Auto-set to Now() on submit |
-| Email | Single line of text | Captured from login session |
-
-> ⚠️ **Important:** `WhatAchieved`, `NextWeekGoals`, and `Blockers` columns must be set to **Plain text** in SharePoint — not Enhanced rich text — to avoid HTML being stored.
+| Email | Text | Added by Admin |
+| OTP | Number | Auto-generated |
+| OTPExpiry | DateTime | Valid for 10 minutes |
 
 ---
 
-## 🖥️ App Screens
+### P1_WeeklyStatus  
 
-| # | Screen | Purpose |
+| Column | Type | Description |
 |---|---|---|
-| 1 | `LoginScreen` | OTP-based secure authentication |
-| 2 | `StatusFormScreen` | Submit weekly status |
-| 3 | `MyReportScreen` | View, edit, delete personal submissions |
-| 4 | `TeamViewScreen` | Manager view of all team submissions |
-| 5 | `EditRecordScreen` | Edit a previously submitted record |
+| EmployeeName | Text | From login |
+| WeekStartDate | DateTime | Selected by user |
+| WhatAchieved | Plain text | Weekly work |
+| NextWeekGoals | Plain text | Next steps |
+| Blockers | Plain text | Issues |
+| SupportNeeded | Choice | Yes / No |
+| SubmittedDate | DateTime | Auto |
+| Email | Text | From login |
+
+> Note: Keep text fields as Plain text in SharePoint to avoid HTML issues.
 
 ---
 
-## ⚡ Power Automate Flows
+## 🖥️ App Screens  
 
-### `P1_SendOTPEmail`
-Triggered from Power Apps when employee clicks **Send OTP**.
+| Screen | Purpose |
+|---|---|
+| LoginScreen | OTP login |
+| StatusFormScreen | Submit updates |
+| MyReportScreen | View/edit submissions |
+| TeamViewScreen | Manager view |
+| EditRecordScreen | Edit records |
 
-```
-When Power Apps calls a flow (V2)
-        ↓
-Initialize variable (random 6-digit OTP)
-        ↓
-Get items from P1_EmployeeUsers (filter by email)
-        ↓
-For each → Update item (save OTP + OTPExpiry)
-        ↓
-Send an email (V2) — deliver OTP to employee inbox
-        ↓
-Respond to Power App (return OTP value)
-```
+---
 
-### `P1_NotifyManager`
-Triggered automatically when a new item is created in `P1_WeeklyStatus`.
+## ⚡ Power Automate Flows  
+
+### P1_SendOTPEmail  
 
 ```
-When an item is created (P1_WeeklyStatus)
-        ↓
-Send an email (V2) — formatted status summary to manager
+
+Power Apps Trigger
+→ Generate OTP
+→ Update SharePoint
+→ Send Email
+→ Return OTP
+
 ```
 
 ---
 
-## 🔑 Key Power Apps Formulas
+### P1_NotifyManager  
 
-### Send OTP — LoginScreen
+```
+
+New SharePoint Item
+→ Send Email to Manager
+
+````
+
+---
+
+## 🔑 Key Power Apps Formulas  
+
+### Send OTP  
+
 ```powerfx
 If(
     IsBlank(txtName.Text),
@@ -261,9 +247,12 @@ If(
     Set(varOTP, varOTPResult.otpvalue);
     Notify("OTP sent to " & txtEmail.Text & ". Please check your inbox.", NotificationType.Success)
 )
-```
+````
 
-### Verify & Sign In — LoginScreen
+---
+
+### Verify Login
+
 ```powerfx
 Set(varUser, Last(Sort(Filter(P1_EmployeeUsers, Email = txtEmail.Text), ID, SortOrder.Ascending)));
 If(
@@ -279,7 +268,10 @@ If(
 )
 ```
 
-### Submit Status — StatusFormScreen
+---
+
+### Submit Status
+
 ```powerfx
 Patch(
     P1_WeeklyStatus,
@@ -300,7 +292,10 @@ Notify("Status submitted successfully ✅", NotificationType.Success);
 Navigate(MyReportScreen, ScreenTransition.Fade)
 ```
 
-### Logout — All Screens
+---
+
+### Logout
+
 ```powerfx
 Set(varUserEmail, Blank());
 Set(varEmployeeName, Blank());
@@ -312,21 +307,24 @@ Navigate(LoginScreen, ScreenTransition.Fade)
 
 ## ⚠️ Known Fixes Applied During Development
 
-| # | Fix | Description |
-|---|---|---|
-| 1 | OTP Expiry | Removed strict expiry check — use `addMinutes(utcNow(), 10)` in flow |
-| 2 | Form Reset | Use `NewForm(frmWeeklyStatus)` after submit instead of `ResetForm()` |
-| 3 | HTML in Fields | Changed `WhatAchieved`, `NextWeekGoals`, `Blockers` to Plain text in SharePoint |
-| 4 | Dropdown Fix | Set `Items = ["Yes","No"]` and `SearchEnabled = false` on Support Needed dropdown |
-| 5 | My Report Filter | Gallery `Items = Filter(P1_WeeklyStatus, Email = varUserEmail)` |
+| Fix        | Description                  |
+| ---------- | ---------------------------- |
+| OTP Expiry | Adjusted handling in flow    |
+| Form Reset | Used NewForm()               |
+| HTML Issue | Changed to plain text fields |
+| Dropdown   | Simplified Yes/No            |
+| Filtering  | Used logged-in email         |
 
 ---
 
 ## 🌱 More Apps Coming
 
-- 🔜 App 2 — In Progress
-- 🔜 App 3 — In Progress
+* App 2 — In Progress
+* App 3 — In Progress
 
 ---
 
-*Built on Microsoft Power Platform · SharePoint · Power BI · Outlook*
+*Built using Microsoft Power Platform · SharePoint · Power BI · Outlook*
+
+```
+```
